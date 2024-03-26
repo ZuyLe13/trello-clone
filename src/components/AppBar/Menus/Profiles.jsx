@@ -33,9 +33,8 @@ function Profiles() {
           aria-expanded={open ? 'true' : undefined}
         >
           <Avatar
-            sx={{ width: 30, height: 30 }}
-            alt='Dile'
-            src='https://scontent.fsgn19-1.fna.fbcdn.net/v/t39.30808-6/428606907_1059048028692957_4866834326007672745_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFArbmyzVULHDhW38Ot2Z-i1mEuLNXv3QLWYS4s1e_dAqBLsyd8bkucXQiNB0ns4vaR2ghpmNwfUkViGi03Dl-P&_nc_ohc=ku8GqOZuovkAX-5-ktk&_nc_ht=scontent.fsgn19-1.fna&oh=00_AfCi4CDm63N972odX4gW-9k1TA70j4nep9Rw3BBrDDTH4w&oe=65FE0234'
+            sx={{ width: 34, height: 34 }}
+            alt='DiLe'
           />
         </IconButton>
       </Tooltip>

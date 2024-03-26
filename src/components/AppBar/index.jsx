@@ -10,11 +10,12 @@ import Starred from './Menus/Starred'
 import Templates from './Menus/Templates'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
-import Badge from '@mui/material/Badge';
+import Badge from '@mui/material/Badge'
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import Tooltip from '@mui/material/Tooltip'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
 import Profiles from './Menus/Profiles'
+import AddToPhotosIcon from '@mui/icons-material/AddToPhotos'
 
 function AppBar() {
   return (
@@ -49,7 +50,9 @@ function AppBar() {
           <Recent />
           <Starred />
           <Templates />
-          <Button variant="outlined">Create</Button>
+          <Button variant="outlined" startIcon={<AddToPhotosIcon />}>
+            Create
+          </Button>
         </Box>
 
       </Box>

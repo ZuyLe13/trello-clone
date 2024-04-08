@@ -80,7 +80,7 @@ function Workspaces() {
           <ListItemText>Web Clipboard</ListItemText>
         </MenuItem>
       </Menu>
-    </Box >
+    </Box>
   )
 }
 

@@ -3,7 +3,7 @@ import Column from './Column/Column'
 import Button from '@mui/material/Button'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
-function ListColumns() {
+function ListColumns({ columns }) {
   return (
     <Box sx={{
       bgcolor: 'inherit',
@@ -16,9 +16,9 @@ function ListColumns() {
     }}>
 
       {/* Column */}
-      <Column />
-      <Column />
-      <Column />
+      {
+        columns?.map(column => <Column key={column._id} column={column} />)
+      }
 
       {/* Add New Column */}
       <Box sx={{

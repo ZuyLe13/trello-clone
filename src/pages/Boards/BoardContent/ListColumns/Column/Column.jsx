@@ -17,12 +17,15 @@ import AddCardIcon from '@mui/icons-material/AddCard'
 import Button from '@mui/material/Button'
 import DragHandleIcon from '@mui/icons-material/DragHandle'
 import ListCards from './ListCards/ListCards'
+import { mapOrder } from '~/utils/sorts'
 
-function Column() {
+function Column({ column }) {
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => setAnchorEl(event.currentTarget)
   const handleClose = () => setAnchorEl(null)
+
+  const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, '_id')
 
   return (
     <Box
@@ -54,7 +57,7 @@ function Column() {
             cursor: 'pointer'
           }}
         >
-          Column Title
+          {column?.title}
         </Typography>
 
         {/* Dropdown column */}
@@ -115,7 +118,7 @@ function Column() {
       </Box>
 
       {/* List Cards */}
-      <ListCards />
+      <ListCards cards={orderedCards} />
 
       {/* Footer */}
       <Box sx={{

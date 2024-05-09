@@ -18,8 +18,27 @@ import Button from '@mui/material/Button'
 import DragHandleIcon from '@mui/icons-material/DragHandle'
 import ListCards from './ListCards/ListCards'
 import { mapOrder } from '~/utils/sorts'
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 
 function Column({ column }) {
+  const {
+    attributes, listeners, setNodeRef, transform, transition
+  } = useSortable({
+    id: column._id,
+    data: { ...column }
+  })
+
+  /**
+   * Nếu sử dụng CSS.Transform như docs thì sẽ gặp lỗi stretch
+   * https://github.com/clauderic/dnd-kit/issues/117
+   */
+  const dndKitColumnStyles = {
+    // touchAction: 'none', // Dành cho sensor default dạng PointerSensor
+    transform: CSS.Translate.toString(transform),
+    transition
+  }
+
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => setAnchorEl(event.currentTarget)
@@ -29,6 +48,10 @@ function Column({ column }) {
 
   return (
     <Box
+      ref={setNodeRef}
+      style={dndKitColumnStyles}
+      {...attributes}
+      {...listeners}
       sx={{
         minWidth: '300px',
         maxWidth: '300px',

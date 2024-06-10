@@ -116,13 +116,11 @@ function BoardContent({ board }) {
         nextOverColumns.cards = nextOverColumns.cards.toSpliced(newCardIndex, 0, rebuild_activeDraggingCardData)
 
         // Xóa Placeholder Card đi nếu nó đang tồn tại
-        nextActiveColumns.cards = nextActiveColumns.cards.filter(card => !card.FE_PlaceholderCard)
+        nextOverColumns.cards = nextOverColumns.cards.filter(card => !card.FE_PlaceholderCard)
 
         // Cập nhật lại mảng cardOrderIds cho chuẩn dữ liệu
         nextOverColumns.cardOrderIds = nextOverColumns.cards.map(card => card._id)
       }
-
-      console.log(nextColumns)
 
       return nextColumns
     })

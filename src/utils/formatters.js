@@ -3,6 +3,7 @@ export const capitalizeFirstLetter = (val) => {
   return `${val.charAt(0).toUpperCase()}${val.slice(1)}`
 }
 
+// Xử lý logic thư viện Dnd-kit khi Column bị rỗng (có column nhưng không có card)
 export const generatePlaceholderCard = (column) => {
   return {
     _id: `${column._id}-placeholder-card`,

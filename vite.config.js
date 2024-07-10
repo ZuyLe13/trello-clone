@@ -4,6 +4,10 @@ import svgr from 'vite-plugin-svgr'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    // eslint-disable-next-line no-undef
+    'process.env': process.env
+  },
   plugins: [
     react(),
     svgr()

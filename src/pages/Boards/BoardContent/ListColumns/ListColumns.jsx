@@ -8,7 +8,7 @@ import CloseIcon from '@mui/icons-material/Close'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
 import { SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable'
 
-function ListColumns({ columns, createNewColumn, createNewCard }) {
+function ListColumns({ columns, createNewColumn, createNewCard, deleteColumnDetails }) {
   const [openNewColumnForm, setOpenNewColumnForm] = useState(false)
   const toggleOpenNewColumnForm = () => setOpenNewColumnForm(!openNewColumnForm)
   const [newColumnTitle, setNewColumnTitle] = useState('')
@@ -50,7 +50,14 @@ function ListColumns({ columns, createNewColumn, createNewCard }) {
 
         {/* Column */}
         {
-          columns?.map(column => <Column key={column._id} column={column} createNewCard={createNewCard} />)
+          columns?.map(column =>
+            <Column
+              key={column._id}
+              column={column}
+              createNewCard={createNewCard}
+              deleteColumnDetails={deleteColumnDetails}
+            />
+          )
         }
 
         {/* Add New Column */}
@@ -130,8 +137,6 @@ function ListColumns({ columns, createNewColumn, createNewCard }) {
               </Box>
             </Box>
         }
-
-
       </Box>
     </SortableContext>
 
